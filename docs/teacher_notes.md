@@ -158,7 +158,7 @@ _Note 2_: This is probably Plymouth-specific, but note that there is one restric
 
 ### Teachers' resources
 
-Here are some [slides](expt-design.odp) on experimental design written about a decade ago for the Exeter Stage 2 practicals. Chris, Clare, and Michael have developed more recent versions for this module, available on the PSYC520/720 DLE. 
+Here are some [slides](presentations/expt-design.odp) on experimental design written about a decade ago for the Exeter Stage 2 practicals. Chris, Clare, and Michael have developed more recent versions for this module, available on the PSYC520/720 DLE. 
 
 ### Early-week session
 
@@ -484,7 +484,7 @@ In the first hour, the group and TA reflect on their results, and the feedback r
 on their presentation. They discuss what they would have done differently if
 they were starting again. In the second hour, the Teacher gives a talk on report writing. 
 
-Here are some [slides](report-writing.odp) on report writing I put together for
+Here are some [slides](presentations/report-writing.odp) on report writing I put together for
 a similar course at Exeter about a decade ago. There is an updated version of these slides on the course DLE.
 
 ### Late-week session and homework

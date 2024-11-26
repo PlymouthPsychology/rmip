@@ -50,7 +50,7 @@ If you ever want to look back at earlier materials on R, you can find them all o
 
 - Week 5: Upload experiment and begin to learn about ANOVA
 
-    - [Prepare your online study](prepare_your_online_study.pptx).
+    - [Prepare your online study](presentations/prepare_your_online_study.pptx).
  
     - [Within-subject differences](https://ajwills72.github.io/rminr/anova1.html) worksheet. 
 
