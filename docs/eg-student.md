@@ -14,11 +14,11 @@ This imaginary student selected a sub-topic on test-potentiated learning ([Potts
 
 - [Abstract submission](eg-student/conference-abstract.odt) with [model answer](eg-student/conference-abstract-eg.odt). Student uploads to PsyLab.
 
-- [Presentation feedback](eg-student/pres-feedback.html) with [example feedback](eg-student/pres-feedback-eg.html) and [model slides](eg-student/presentation-eg.pdf). 
+- [Presentation feedback](eg-student/pres-feedback.md) with [example feedback](eg-student/pres-feedback-eg.md) and [model slides](eg-student/presentation-eg.pdf). 
 
-- _Bullet point plan_: There is no proforma for this, but there is a [model answer](eg-student/eg-bullet.html). Student uploads to PsyLab.
+- _Bullet point plan_: There is no proforma for this, but there is a [model answer](eg-student/eg-bullet.md). Student uploads to PsyLab.
 
-- [Main report](eg-student/report-proforma.odt) with [model answer](eg-student/report-eg.odt) and [mark scheme](eg-student/report-mark-scheme.html) **Student uploads to DLE**.
+- [Main report](eg-student/report-proforma.odt) with [model answer](eg-student/report-eg.odt) and [mark scheme](eg-student/report-mark-scheme.md) **Student uploads to DLE**.
 
 
 
