@@ -76,15 +76,15 @@ If you ever want to look back at earlier materials on R, you can find them all o
 
 - Week 10: Give presentation
 
-   - [Presentation feedback](eg-student/pres-feedback.html) form with [example feedback](eg-student/pres-feedback-eg.html).
+   - [Presentation feedback](eg-student/pres-feedback.md) form with [example feedback](eg-student/pres-feedback-eg.md).
 
 - Week 11: Planning a report
 
-   - _Bullet point plan_: There is no form for this, but there is a [example answer](eg-student/eg-bullet.html).
+   - _Bullet point plan_: There is no form for this, but there is a [example answer](eg-student/eg-bullet.md).
     
 - Week 12: Critique and support
 
-   - [Main report](eg-student/report-proforma.odt) template with [example answer](eg-student/report-eg.odt) and [mark scheme](eg-student/report-mark-scheme.html). Also, see this [really bad answer](eg-student/bad-report-eg.odt) for comparison.
+   - [Main report](eg-student/report-proforma.odt) template with [example answer](eg-student/report-eg.odt) and [mark scheme](eg-student/report-mark-scheme.md). Also, see this [really bad answer](eg-student/bad-report-eg.odt) for comparison.
    - [Report writing FAQ](documents/PSYC520_Report_Writing_FAQ.docx)
 
 ## Some explanations
