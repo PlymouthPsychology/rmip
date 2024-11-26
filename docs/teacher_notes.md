@@ -129,7 +129,7 @@ One week before the first class, students must be emailed and requested to:
 | 015 | Teacher gives a short introduction to each of the three topics and sub-topics. |
 | 030 | Students select topic and organise into groups. Each TA allocated to 3 groups. Any given TA does one / two topics maximum. |
 | 055 | Break      |
-| 065 | Students do the [Introduction to OpenSesame](https://ajwills72.github.io/rmip/openses_task1.html)  worksheet, with support |
+| 065 | Students do the [Introduction to OpenSesame](openses_task1.md)  worksheet, with support |
 | 115 | Finish                                                                                                   |
 
 _Note 1_: When introducing the topic, teachers should lay the groundwork for students to understand the concept of an interaction.
@@ -280,7 +280,7 @@ Session is dedicated to getting their experiment working on JATOS. If they've fo
 
 #### Advice: Tips for conversion to OSWeb/JATOS experiment
 
-Instructions on converting the OpenSesame experiment script for use in JATOS are given [in this document](https://github.com/ajwills72/rmip/blob/master/docs/prepare_your_online_study.pptx)
+Instructions on converting the OpenSesame experiment script for use in JATOS are given [in this document](prepare_your_online_study.pptx)
 
 Here are a few things to watch out for when converting to OSWeb:
 
@@ -536,7 +536,7 @@ them in the following:
 
 [APA referencing](https://plymouth.libguides.com/APA)
 
-[Common issues of grammar and style](grammar.html)
+[Common issues of grammar and style](grammar.md)
 
 ### Late-week session
 
@@ -589,7 +589,7 @@ The marking process is as follows:
 
     5.2. Do not use sarcasm. Do not belittle. Don't write anything you wouldn't want to receive on your work. If something is wrong, say so, but also say what is right.
  
-    5.3. The [mark scheme](eg-student/report-mark-scheme.html) indicates the sorts of things you should be giving feedback on.
+    5.3. The [mark scheme](eg-student/report-mark-scheme.md) indicates the sorts of things you should be giving feedback on.
 
     5.4. When you have finished reading and commenting on the report, fill in the
   'overall comments' section on the cover sheet. You should aim to say three
