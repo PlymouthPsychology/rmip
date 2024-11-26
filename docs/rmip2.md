@@ -6,7 +6,7 @@ _Clare Walsh, Michael Verde, Julien Besle_
 
 In this course, you'll get a guided introduction to doing research as a team. Across weekly two-hour workshops, you'll go through the whole _research cycle_. You'll pick a topic (from a list), plan a study, build an experiment, collect data, analyze that data, and give a group presentation on your findings. You'll then write up the whole thing in journal article format. The focus is on learning a few techniques well, and getting lots of practice in those techniques. You'll learn how to do good, open, reproducible science, and you'll be well prepared for the research methods components of your final year. 
 
-More information is given on the [module outline page](./psyc520moduleoutline.md).
+More information is given on the [module outline page](psyc520moduleoutline.md).
 
 ## Before the course begins
 
@@ -22,13 +22,13 @@ If you ever want to look back at earlier materials on R, you can find them all o
 
 - Week 1: Select topic and learn about statistical power
 
-    - [Topic 1: Mind wandering](topic1.html).
+    - [Topic 1: Mind wandering](topic1.md).
 
-    - [Topic 2: Long-term memory](topic2.html).
+    - [Topic 2: Long-term memory](topic2.md).
 
-    - [Topic 3: Face processing](topic3.html).
+    - [Topic 3: Face processing](topic3.md).
 
-    - [Running an OpenSesame Experiment](openses_task1.html) worksheet.
+    - [Running an OpenSesame Experiment](openses_task1.md) worksheet.
 
     - [Statistical power](https://ajwills72.github.io/rminr/power.html) worksheet.
 
@@ -44,7 +44,7 @@ If you ever want to look back at earlier materials on R, you can find them all o
 
 - Week 4: Build experiment
 
-    - [Building an OpenSesame Experiment](openses_task2.html) worksheet.
+    - [Building an OpenSesame Experiment](openses_task2.md) worksheet.
 
     - Video about using JATOS: [Uploading an OpenSesame Experiment](https://youtu.be/EMHwUMI4JOI)
 
