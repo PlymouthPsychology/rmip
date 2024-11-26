@@ -42,14 +42,14 @@ lead teacher and four teaching assistants, and the second (small) workshop will
 be staffed only by teaching assistants.  The same staff members are present
 every week. A brief summary of the provisional schedule for
 each week is below; a much more detailed guide may be found on the [Research
-Methods in Practice](https://ajwills72.github.io/rmip/rmip2.html) website.
+Methods in Practice](rmip2.md) website.
 
 
 ## Assessment
 
 | Element | Description | Weighting |
 | ------- | ----------- | --------- |
-| **C**oursework | Written report to format and length described [here](https://www.andywills.info/rmip/eg-student/report-proforma.odt) | 80% |
+| **C**oursework | Written report to format and length described [here](eg-student/report-proforma.odt) | 80% |
 | **P**ractical | Group oral presentation (10 mins) | 20% |
 | PsyLab activities | Pass a minimum of 11 PsyLab activites | Pass / Fail |
 
@@ -57,7 +57,7 @@ For the assessment deadlines, please see the Deadlines document on the Programme
 
 ## Marking Criteria
 
-There are detailed mark schemes for both the [presentation](https://www.andywills.info/rmip/eg-student/pres-feedback.html) and the [report](https://www.andywills.info/rmip/eg-student/report-mark-scheme.html). The conditions for passing each PsyLab activities are specific to the activity, and are expressed within the activity itself.
+There are detailed mark schemes for both the [presentation](eg-student/pres-feedback.html) and the [report](eg-student/report-mark-scheme.md). The conditions for passing each PsyLab activities are specific to the activity, and are expressed within the activity itself.
 
 ## Academic Dishonesty
 
