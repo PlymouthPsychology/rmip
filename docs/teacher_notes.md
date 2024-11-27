@@ -281,13 +281,13 @@ Session is dedicated to getting their experiment working on JATOS. If they've fo
 
 #### Advice: Tips for conversion to OSWeb/JATOS experiment
 
-Instructions on converting the OpenSesame experiment script for use in JATOS are given [here](prepare_your_online_study.md)
+Instructions on converting the OpenSesame experiment script for use in JATOS are given [here](prepare_your_online_study.md).
 Once students have converted their study and uploaded the jzip file(s) to JATOS, they should send both the experiment files and the JATOS links to their group leader
 Alternatively, TAs can convert the file and upload to JATOS themselves.
 
-Either way, the group leader checks that the experiment(s) is/are working online to avoid issue in week 6 during collection.
+Either way, the group leader checks that the experiment(s) is/are working online to avoid issue in week 6 during collection. Students are supposed to have gone throught [this checklist](OpenSesame_checklist.md), but group leaders should always double-check.
 
-Here are a few things to watch out for when converting to OSWeb:
+Here are a few additional things to watch out for when converting to OSWeb:
 
 - When the task runs in a browser, long text instructions might get cut off at the edges. To avoid this, students can edit the text object and introduce line breaks using an html line break tag (\<br\>)
 - if sounds are used in the experiment, check that they work in MacOS Safari (this may be an old issue that has since been resolved)
