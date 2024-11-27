@@ -8,7 +8,7 @@ OpenSesame is a computer software package for running psychology experiments. It
 
 ## Installing OpenSesame
 
-OpenSesame (verfsion 4.0.24) can be downloaded via the following links:
+OpenSesame (version 4.0.24) can be downloaded via the following links:
 
 - If you have a Windows machine, click [here](https://github.com/open-cogsci/OpenSesame/releases/download/release%2F4.0.24/opensesame_4.0.24-py311-win64-1.exe)
 - If you have an Apple Mac, click [here](https://github.com/open-cogsci/OpenSesame/releases/download/release%2F4.0.24/opensesame_4.0.24-py311-macos-x64-1.dmg)
@@ -50,9 +50,9 @@ The good news is once you have done this the setting sticks so you will not have
 
 The purpose of this exercise is to get used to running an OpenSesame experiment, so the precise details of the experiment itself are of less importance. To give a brief background however, the experiment you will be running is one you may well remember from PSYC412. In PSYC412 there was a PsycEL task in which you saw some faces that you were asked to remember. You then completed a few games of *Play your cards right* before being shown some more faces to which you needed to indicate whether you recognised the face or not. The OpenSesame version for PSYC520/720 is the same except for the filler task. Instead of playing a game you will be asked to count backwards, in threes, from 30 to 0.
 
-To begin, download the experiment from [here](openseslib/psycel_week_1_task.osexp).
+To begin, download the experiment from [here](openseslib/PSYC520_720_Week1_FaceRecognition.osexp).
 
-The experiment has probably been downloaded to your Downloads folder. To make life simple, move the file to your Desktop. Now go back to OpenSesame (or reopen it if you closed it earlier) and click on the **Open...** button in the toolbar. Now find your way to the Desktop and select the experiment file (called psyc520720_psychel_week1_task.osexp) then click Open. Once loaded, select the line saysing "PSYC520_720_OpenSesame_Activity" at the top left of the "Overview" panel. You OpenSesame window should look like this:
+The experiment has probably been downloaded to your Downloads folder. To make life simple, move the file to your Desktop. Now go back to OpenSesame (or reopen it if you closed it earlier) and click on the **Open...** button in the toolbar. Now find your way to the Desktop and select the experiment file (called psyc520720_psychel_week1_task.osexp) then click Open. Once loaded, select the line saying "PSYC520_720_OpenSesame_Activity" at the top left of the "Overview" panel. You OpenSesame window should look like this:
 
 ![opensesame with experiment loaded](images/OS_v4_windows_loaded_experiment.png)
 
