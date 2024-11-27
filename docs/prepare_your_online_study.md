@@ -15,7 +15,7 @@ You will eventually give participants online links that allow them to run your s
 
 To export your OpenSesame script to a format that can be used on JATOS, follow these instructions:
 
-### Step 0: Go through the [check list](checklist.md) to make sure your OpenSesame experiment works correctly
+### Step 0: Go through the [check list](OpenSesame_checklist.md) to make sure your OpenSesame experiment works correctly
 
 ### Step 1. Test your program to see if it’s compatible with running online.
 
