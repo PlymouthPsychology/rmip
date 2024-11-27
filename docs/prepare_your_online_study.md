@@ -3,7 +3,7 @@
 _Julien Besle_
 
 This document assumes that you have build your experiment using OpenSesame version 4.0.24
-(Instructions for version 3.x are given in this [document](presentations/prepare_your_online_study.pptx)
+(Instructions for OpenSesame version 3.x are given in this [document](presentations/prepare_your_online_study.pptx))
 
 ## Introduction
 
@@ -56,5 +56,5 @@ Watch the [Uploading an OpenSesame Experiment](https://youtu.be/EMHwUMI4JOI) vid
 
 If you have multiple experiment programs (e.g. one for each between-subjects condition in your study) you will do this for each program.
 
-### Step 6. Send both your osexp experiment script(s) and the corresponding JATOS link(s) to your group leader so they can check that everything is working 
+### Step 6. Send both your osexp experiment script(s) and the corresponding JATOS link(s) to your group leader, so they can check that everything is working 
 
