@@ -52,7 +52,7 @@ If you ever want to look back at earlier materials on R, you can find them all o
 
     - [OpenSesame experiment checklist](OpenSesame_checklist.md).
 
-    - [Prepare your online study](presentations/prepare_your_online_study.pptx).
+    - [Prepare your online study](presentations/prepare_your_online_study.md).
  
     - [Within-subject differences](https://ajwills72.github.io/rminr/anova1.html) worksheet. 
 
