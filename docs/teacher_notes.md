@@ -209,6 +209,8 @@ _Note_: In the Teacher's presentation, there should be some focus of understandi
 
 ## Week 4: Build experiment
 
+> **_IMPORTANT:_**  This week the module leader must ensure that JATOS logins are created so they can be given to students in Week 5. Until now Chris L was creating them, but I'd like to document this here so someone else can do it as well (e.g. the ML). 
+
 ### Both sessions
 
 Both sessions are dedicated to achieving the following goal: Have a working,
