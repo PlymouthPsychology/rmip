@@ -68,11 +68,9 @@ If you ever want to look back at earlier materials on R, you can find them all o
 
 - Week 9: Write a presentation
 
-    - [Group presentation ('conference') submission](eg-student/conference-abstract.odt) form, with [example](eg-student/conference-abstract-eg.odt).
+    - [Group presentation abstract submission](eg-student/conference-abstract.odt) proforma, with [example](eg-student/conference-abstract-eg.odt).
 
     - [Example presentation slides](eg-student/presentation-eg.odp).
-
-- EASTER BREAK
 
 - Week 10: Give presentation
 
@@ -82,7 +80,9 @@ If you ever want to look back at earlier materials on R, you can find them all o
 
    - _Bullet point plan_: There is no form for this, but there is a [example answer](eg-student/eg-bullet.md).
     
-- Week 12: Critique and support
+- EASTER BREAK
+
+- Week 15: Critique and support
 
    - [Main report](eg-student/report-proforma.odt) template with [example answer](eg-student/report-eg.odt) and [mark scheme](eg-student/report-mark-scheme.md). Also, see this [really bad answer](eg-student/bad-report-eg.odt) for comparison.
    - [Report writing FAQ](documents/PSYC520_Report_Writing_FAQ.docx)
