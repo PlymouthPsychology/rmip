@@ -209,26 +209,6 @@ _Note_: In the Teacher's presentation, there should be some focus of understandi
 
 ## Week 4: Build experiment
 
-### Resources
-
-Students may find this [library](openses_lib.md) of OpenSesame scripts useful.
-
-> **_IMPORTANT:_**  When collecting data online using OSWeb/JATOS, the data may not correctly save if the participant does not press the space bar at the end of the experiment. Students should mention in their instructions that the participant must press the space bar at the end to complete their participation. 
-
-#### Advice: how to implement between-subject experimental manipulations
-
-There are (at least) two ways to implement between-subject experimental manipulations in OpenSesame:
-
-- Make two separate OpenSesame scripts (one for each between-subject experimental conditions), create two different links on JATOS and assign different links to different participants.
-
-- Make a single OpenSesame script in which the between-subject condition depends on the parity of the participant number (whether it's odd or even). For this, you can use the built-in variable "subject_parity" and run a specific condition (e.g. condition 1) if the participant number is odd and the other condition (e.g. condition 2) if the participant number is even. This [video](https://www.youtube.com/watch?v=zP8ucRtWU5g) illustrates this method for a between-subject counterbalancing example (which can easily be simplified to a between-subject experimental manipulation).
-
-The second method is preferable because: 
-1. the same JATOS link can be given to all participants
-2. it will ensure that the experiment is otherwise identical for all participants
-
-When using the second method, or for any experiment that uses separate blocks, make sure the same data logger is used in both blocks (they should have the same name). This will ensure the log file has a single header line at the top.
-
 ### Both sessions
 
 Both sessions are dedicated to achieving the following goal: Have a working,
@@ -260,6 +240,25 @@ Each project should meet all the items on this checklist by the first session ne
 
 - Watch Chris Longmore's JATOS video - [Uploading an OpenSesame Experiment](https://youtu.be/EMHwUMI4JOI).
 
+### Resources
+
+Students may find this [library](openses_lib.md) of OpenSesame scripts useful.
+
+> **_IMPORTANT:_**  When collecting data online using OSWeb/JATOS, the data may not correctly save if the participant does not press the space bar at the end of the experiment. Students should mention in their instructions that the participant must press the space bar at the end to complete their participation. 
+
+#### Advice: how to implement between-subject experimental manipulations
+
+There are (at least) two ways to implement between-subject experimental manipulations in OpenSesame:
+
+- Make two separate OpenSesame scripts (one for each between-subject experimental conditions), create two different links on JATOS and assign different links to different participants.
+
+- Make a single OpenSesame script in which the between-subject condition depends on the parity of the participant number (whether it's odd or even). For this, you can use the built-in variable "subject_parity" and run a specific condition (e.g. condition 1) if the participant number is odd and the other condition (e.g. condition 2) if the participant number is even. This [video](https://www.youtube.com/watch?v=zP8ucRtWU5g) illustrates this method for a between-subject counterbalancing example (which can easily be simplified to a between-subject experimental manipulation).
+
+The second method is preferable because: 
+1. the same JATOS link can be given to all participants
+2. it will ensure that the experiment is otherwise identical for all participants
+
+When using the second method, or for any experiment that uses separate blocks, make sure the same data logger is used in both blocks (they should have the same name). This will ensure the log file has a single header line at the top.
 
 <a name="5"></a>
 
