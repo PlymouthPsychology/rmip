@@ -285,7 +285,7 @@ Instructions on converting the OpenSesame experiment script for use in JATOS are
 Once students have converted their study and uploaded the jzip file(s) to JATOS, they should send both the experiment files and the JATOS links to their group leader
 Alternatively, TAs can convert the file and upload to JATOS themselves.
 
-Either way, the group leader checks that the experiment(s) is/are working online to avoid issue in week 6 during collection. Students are supposed to have gone throught [this checklist](OpenSesame_checklist.md), but group leaders should always double-check.
+Either way, the group leader checks that the experiment(s) is/are working online to avoid issue in week 6 during collection. Students are supposed to have gone through [this checklist](OpenSesame_checklist.md), but group leaders should always double-check.
 
 Here are a few additional things to watch out for when converting to OSWeb:
 
