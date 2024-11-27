@@ -1,6 +1,6 @@
 # Running An Experiment In OpenSesame
 
-_Chris Longmore_
+_Chris Longmore, Julien Besle_
 
 ## Introduction
 
@@ -8,10 +8,10 @@ OpenSesame is a computer software package for running psychology experiments. It
 
 ## Installing OpenSesame
 
-OpenSesame can be downloaded via the following links:
+OpenSesame (verfsion 4.0.24) can be downloaded via the following links:
 
-- If you have a Windows machine, click [here](https://github.com/open-cogsci/OpenSesame/releases/download/release%2F4.0.13/opensesame_4.0.13-py311-win64-1.exe)
-- If you have an Apple Mac, click [here](https://github.com/open-cogsci/OpenSesame/releases/download/release%2F4.0.1/opensesame_4.0.1-py311-macos-x64-1.dmg)
+- If you have a Windows machine, click [here](https://github.com/open-cogsci/OpenSesame/releases/download/release%2F4.0.24/opensesame_4.0.24-py311-win64-1.exe)
+- If you have an Apple Mac, click [here](https://github.com/open-cogsci/OpenSesame/releases/download/release%2F4.0.24/opensesame_4.0.24-py311-macos-x64-1.dmg)
 
 The installer files are quite large, so this might take some time.
 
@@ -74,4 +74,4 @@ You have just completed your first study using OpenSesame. If you have finished 
 
 ## Extra Information For The Interested
 
-If you would like to learn more about OpenSesame you can find the full documentation [here](http://osdoc.cogsci.nl/). You do not have to look at this documentation, but the link is given for those who want to find out more.
+If you would like to learn more about OpenSesame you can find  a bginner's tutorial [here](https://osdoc.cogsci.nl/4.0/tutorials/beginner/) and the full documentation [here](http://osdoc.cogsci.nl/). You do not have to look at this documentation, but the link is given for those who want to find out more.
