@@ -25,7 +25,7 @@ Run your experiment as usual. It should open in a browser window (we recommend G
 
 If it doesn’t run properly in the browser view, it won’t run online!
 
-![Run experiment in a browser with OSWeb](experiments/online_study_guide/Run_experiment_with_OSWeb.png)
+![Run experiment in a browser with OSWeb](images/online_study_guide/Run_experiment_with_OSWeb.png)
 
 Once you have tested that your experiment works as expected in a browser, remember put this setting back to “On the desktop with Expyriment” if you want to test your experiment further on your laptop
 
@@ -33,14 +33,14 @@ Once you have tested that your experiment works as expected in a browser, rememb
 
 Open the “OSWeb and JATOS control” panel from the “Tools” menu
 
-![OSWeb and JATOS control panel](experiments/online_study_guide/OSWeb_and_JATOS_control_panel.png)
+![OSWeb and JATOS control panel](images/online_study_guide/OSWeb_and_JATOS_control_panel.png)
 
 
 ### Step 3. Export the Experiment to a .jzip file
 
 Make sure you delete the "0, 1" values in the “possible subject number” field
 
-![Possible subject number](experiments/online_study_guide/possible_subject_numbers.png)
+![Possible subject number](images/online_study_guide/possible_subject_numbers.png)
 
 ### Step 4. Export the Experiment to a .jzip file
 
@@ -48,13 +48,13 @@ Click the “Export to JATOS archive” button
 
 This will turn your program into a jzip file (.jzip extension) – save this file.
 
-![Export to JATOS archive](experiments/online_study_guide/Export_to_JATOS_archive.png)
+![Export to JATOS archive](images/online_study_guide/Export_to_JATOS_archive.png)
 
 ### Step 5. The jzip file that you saved is now ready to be uploaded to the JATOS server.
 
 Watch the [Uploading an OpenSesame Experiment](https://youtu.be/EMHwUMI4JOI) video for instructions on how to do this.
 
-If you have multiple experiment programs (e.g. one for each between-subjects condition in your study) you will do this for each program.
+If you have multiple osexp experiment files (e.g. one for each between-subjects condition in your study) you will do this for each file.
 
 ### Step 6. Send both your osexp experiment script(s) and the corresponding JATOS link(s) to your group leader, so they can check that everything is working 
 
