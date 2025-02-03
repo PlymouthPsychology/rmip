@@ -53,7 +53,9 @@ Methods in Practice](rmip2.md) website.
 | **P**ractical | Group oral presentation (10 mins) | 20% |
 | PsyLab activities | Pass a minimum of 11 PsyLab activites | Pass / Fail |
 
-For the assessment deadlines, please see the Deadlines document on the Programme page of the DLE.
+For the assessment deadlines other than Psylab, please see the Deadlines document on the Programme page of the DLE.
+
+Psylab deadlines are given [here](psycel-schedule.md)
 
 ## Marking Criteria
 
