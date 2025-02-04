@@ -17,7 +17,7 @@ The module focusses on learning relatively few key techniques, and giving studen
 
 - [Topic 1: Mind wandering](topic1.md), with [teachers' notes](topic1teachernotes.md)
 
-- [Topic 2: Long-term memory](topic2.md), with [teachers' notes](topic2teachernotes.Rmd)
+- [Topic 2: Long-term memory](topic2.md), with [teachers' notes](topic2teachernotes.html)
 
 - [Topic 3: Face processing](topic3.md), with [teachers' notes](topic3teachernotes.md)
 
