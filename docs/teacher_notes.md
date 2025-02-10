@@ -134,7 +134,9 @@ One week before the first class, students must be emailed and requested to:
 
 _Note 1_: When introducing the topic, teachers should lay the groundwork for students to understand the concept of an interaction.
 
-_Note 2_: This is probably Plymouth-specific, but note that there is one restriction to the principle that students can pick their own groups -- group members must all be from the same exit-level of qualification (i.e. all B.Sc., or all M.Sc.). This is because M.Sc. work is marked to a higher standard, and the presentation is group marked.
+_Note 2_: TAs ask students to come up with a team name. This is easier to use then group numbers later on.
+
+_Note 3_: This is probably Plymouth-specific, but note that there is one restriction to the principle that students can pick their own groups -- group members must all be from the same exit-level of qualification (i.e. all B.Sc., or all M.Sc.). This is because M.Sc. work is marked to a higher standard, and the presentation is group marked.
 
 
 
