@@ -209,7 +209,7 @@ _Note_: In the Teacher's presentation, there should be some focus of understandi
 
 ## Week 4: Build experiment
 
-> **_IMPORTANT:_**  This week the module leader must ensure that JATOS logins are created so they can be given to students in Week 5. Until now Chris L was creating them, but I'd like to document this here so someone else can do it as well (e.g. the ML). 
+> **_IMPORTANT:_**  This week the module leader must ensure that JATOS logins are created so they can be given to students in Week 5. To create JATOS login, the ML logs into the JATOS server ([jatos.plymouth.ac.uk](https://jatos.plymouth.ac.uk/)), goes into the "Administration" menu (top right), then into the "User Manager" menu (top left) and adds as many users as there are groups across the three workshops (the ML should have admin rights on the JATOS server; contact the Tech office if not). A spreadsheet with the list and usernames and password should then be poste on the PSYC520_X DLE). 
 
 ### Both sessions
 
