@@ -248,7 +248,9 @@ Each project should meet all the items on this checklist by the first session ne
 
 Students may find this [library](openses_lib.md) of OpenSesame scripts useful.
 
-> **_IMPORTANT:_**  When collecting data online using OSWeb/JATOS, the data may not correctly save if the participant does not press the space bar at the end of the experiment. Students should mention in their instructions that the participant must press the space bar at the end to complete their participation. 
+> **_IMPORTANT:_**  When collecting data online using OSWeb/JATOS, the data may not correctly save if the participant does not press the space bar at the end of the experiment. Students should mention in their instructions that the participant must press the space bar at the end to complete their participation.
+
+When students start implementing their own OpenSesame experiment, it may useful for one member of the group to share their screen on the table's monitor. To do so, they can use the Zoom sharing function on the ZoomWork station at the centre of the table. The monitor's input should be switched to HDMI 1 (press the "PC" button on the black AV box to switch all monitors to Zoom). On the Zoom station, select "Share content", and, on the computer you'd like to share content from, start Zoom and press "Share screen", then use the share screen code given on the Zoom station.
 
 #### Advice: how to implement between-subject experimental manipulations
 
