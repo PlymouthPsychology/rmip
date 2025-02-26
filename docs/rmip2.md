@@ -64,7 +64,7 @@ If you ever want to look back at earlier materials on R, you can find them all o
 
 - Week 7: Finish data collection
 
-    - Video about using JATOS: [Exporting results](https://youtu.be/y3fcPB5Fj5M)
+    - Video about using JATOS: [Exporting results](https://plymouth.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=5b2de558-eb6a-4720-bb4c-b28f015454ab)
 
 - Week 8: Analyse data
 
