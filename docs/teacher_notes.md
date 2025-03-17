@@ -570,9 +570,9 @@ In addition, allow two hours for the initial markers' meeting and the preparatio
 
 **Friday 2nd May 2025, mid-day** (Week 15) - Submission deadline passes. Module leader sends marking sample to markers. Markers must not mark any further reports until after initial markers' meeting (below)
 
-**Thursday 8th May 2025, mid-day** (Week 16) - Markers return marking sample with scores, but without feedback, to module leader.
+**Wednesday 7th May 2025, afternoon** (Week 16) - Markers return marking sample with scores, but without feedback, to module leader.
 
-**Friday 9th May 2025, 1pm** (Week 16) - Initial markers' meeting between all markers and module leader. Immediately after the meeting, you may start marking.
+**Thursday 8th May 2025, 1pm** (Week 16) - Initial markers' meeting between all markers and module leader. Immediately after the meeting, you may start marking.
 
 **Monday 12th May 2025, mid-day** (Week 17) - Submission grace period passes, no further submissions permitted. 
 
