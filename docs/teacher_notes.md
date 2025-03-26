@@ -426,7 +426,7 @@ This session is dedicated to ensuring all groups are ready for the week 10 prese
 
 Students should submit presentation title, author names, and abstract by **end of the late-week session**. 
 
-<a name="easter"></a>
+<a name="10"></a>
 
 ## Week 10: Give presentation
 
@@ -509,13 +509,13 @@ Students write and submit a bullet-point plan for their report, with support.
 
 
 
-<a name="12"></a>
+<a name="easter"></a>
 
 ## EASTER BREAK
 
 There is a now a three-week hiatus for Easter Vacation. The module is paused, and no support is available; questions must be held over until the beginning of term. 
 
-<a name="10"></a>
+<a name="12"></a>
 
 
 ## Week 15: Critique and support
