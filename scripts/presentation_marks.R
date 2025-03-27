@@ -33,14 +33,14 @@ grps <- bind_rows(grps.W1, grps.W2, grps.W3)
 
 
 ## Check/clean feedback data
-length(unique(fback$Component)) == 10 ## 10 feedback components
+length(unique(fback$Component)) == 12 ## 12 feedback components
 unique(fback$Component) ## They the correct components
 data.frame(groupid = unique(fback$Group_ID)) %>% arrange(groupid) ## Sensible-looking group IDs
 unique(fback$Score) ## Valid scores
 
 ngroups  <- length(unique(fback$Group_ID)) ## number of groups
 ngroups
-nrow(fback) / ngroups ## number of rows / number of groups should equal 10
+nrow(fback) / ngroups ## number of rows / number of groups should equal 12
 table(fback$Group_ID)  ## find groups with missing feedback.
 
 
@@ -134,7 +134,7 @@ make.feedback <- function(oneg, mrk) {
     preamble <- c(
     "PSYC520 / PSYC720: Group Presentation",
     "",
-    "Your group's presentation was marked independently by two markers, who then agreed the following scores and feedback. The overall mark for each group was calculated by taking the mean across the nine scores below. The module leader took the set of overall marks, moderated them, and converted them to the grade you see below. This was done with reference to the generic marking criteria you can find in your Stage handbook. The mark awarded is for your group. Every member of the group who attended their group’s presentation gets this mark. Failure to attend results in a mark of zero.",
+    "Your group's presentation was marked independently by two markers, who then agreed the following scores and feedback. The overall mark for each group was calculated by taking the mean across the 12 scores below. The module leader took the set of overall marks, moderated them, and converted them to the grade you see below. This was done with reference to the generic marking criteria you can find in your Stage handbook. The mark awarded is for your group. Every member of the group who attended their group’s presentation gets this mark. Failure to attend results in a mark of zero.",
     "",
     "These marks are provisional, and will remain so until confirmed by the Board of Examiners.",
     "",
@@ -151,7 +151,7 @@ make.feedback <- function(oneg, mrk) {
     for(rw in 1:nrow(oneg)) {
         txt <- c(txt,
                  paste0(rw,". ", oneg$Component[rw]),
-                 if(rw != 10) paste0("SCORE: ", oneg$Mark[rw]),
+                 if(rw != 12) paste0("SCORE: ", oneg$Mark[rw]),
                  paste0("FEEDBACK: ", oneg$Feedback[rw]),
                  ""
                  )
@@ -172,6 +172,7 @@ for(gid in unique(fback$Group_ID)) {
 
 ## Number of duplicate email addresses
 sum(duplicated(grps$PU_email))
+grps$PU_email[duplicated(grps$PU_email)]
 
 ## Count N students on our lists
 nrow(grps)
@@ -209,109 +210,114 @@ full$`Full name`[is.na(full$`PU_email`)]
 
 ## Who was absent?
 absent <- grps %>% filter(present != 1)
-
+write_csv(absent, file = "scripts/pres-marks/absent-students.csv")
 ## OK, contact those students
 
-## Check email system working
-cmd  <- 'mutt -s \"Absence from assessed presentation\" -- andy.wills@plymouth.ac.uk < ec-email.txt'
-system(cmd)
-
-## Email all absentees
-for(student in absent$PU_email) {
-    subj <- '"Absence from assessed presentation"'
-    cmd <- paste0(
-        "mutt -s ",
-        subj,
-        " -- ",
-        student,
-        " < ec-email.txt"
-    )
-    print(cmd)
-##  system(cmd)
-}
+## (They receive feedback via class - email to workshop leads)
+# ## Check email system working
+# cmd  <- 'mutt -s \"Absence from assessed presentation\" -- andy.wills@plymouth.ac.uk < ec-email.txt'
+# system(cmd)
+# 
+# ## Email all absentees
+# for(student in absent$PU_email) {
+#     subj <- '"Absence from assessed presentation"'
+#     cmd <- paste0(
+#         "mutt -s ",
+#         subj,
+#         " -- ",
+#         student,
+#         " < ec-email.txt"
+#     )
+#     print(cmd)
+# ##  system(cmd)
+# }
 
 ## Right, so now who was present?
 present <- grps %>% filter(present == 1)
 
-## OK, send feedback to those students
-##sink("dump.txt")
-for(student in present$PU_email) {
-    subj <- '"PSYC520/720: Group presentation mark and feedback"'
-    groupid <- present$Group_ID[present$PU_email == student]
-##  student <- "andy.wills@plymouth.ac.uk"        
-    cmd <- paste0(
-        "mutt -s ",
-        subj,
-        " -- ",
-        student,
-        " < feedback/",
-        groupid,
-        ".txt"
-    )
-    print(cmd)
-   ## system(cmd)  
-}
-##sink()
+# ## OK, send feedback to those students
+# ##sink("dump.txt")
+# for(student in present$PU_email) {
+#     subj <- '"PSYC520/720: Group presentation mark and feedback"'
+#     groupid <- present$Group_ID[present$PU_email == student]
+# ##  student <- "andy.wills@plymouth.ac.uk"        
+#     cmd <- paste0(
+#         "mutt -s ",
+#         subj,
+#         " -- ",
+#         student,
+#         " < feedback/",
+#         groupid,
+#         ".txt"
+#     )
+#     print(cmd)
+#    ## system(cmd)  
+# }
+# ##sink()
 
 ## OK, so now the EC deadline has passed...
 
 ## load in mark sheet from that
 ## and merge with the original absent list
-ec.marks  <- read_csv("pres-marks/ec_pres_2022.csv")
+ec.marks  <- read_csv("pres-marks/ec_pres_2024.csv")
 ec.comb  <- left_join(absent, ec.marks, by="PU_email") %>%
     select(Group_ID, PU_email, present, EC_presented, EC_type)
 
-## Remake feedback files with EC preamble
-make.ec.feedback <- function(oneg, mrk) {
-    preamble <- c(
-    "PSYC520 / PSYC720: Presentation",
-    "",
-    "Your Extenuating Circumstances presentation has been marked; below is your mark, which is the same as for the rest of your group.",
-    "",
-    "These marks are provisional, and will remain so until confirmed by the Board of Examiners.",
-    "",
-    "DO NOT REPLY TO THIS AUTO-GENERATED EMAIL, as replies will not be received. If you have questions about this mark, ask your workshop group leader (Chris Longmore, Michael Verde, or Clare Walsh) during their office hours.", ""
-)
-    gid <- oneg$Group_ID[1]
-    fnam <- paste0("ec_feedback/",gid,".txt")
-    txt <- c(
-        paste0("Group: ", gid), "",
-        preamble,"", 
-        paste0("OVERALL MARK: ", mrk, "%"), ""
-    )
-    fileConn <- file(fnam)
-    writeLines(txt, fileConn)
-    close(fileConn)
-}
-
-## Create feedback files
-for(gid in unique(fback$Group_ID)) {
-    onef <- fback %>% filter(Group_ID == gid) 
-    omark <- scores$mark[scores$Group_ID == gid]
-    make.ec.feedback(onef, omark)
-}
+# ## Remake feedback files with EC preamble
+# make.ec.feedback <- function(oneg, mrk) {
+#     preamble <- c(
+#     "PSYC520 / PSYC720: Presentation",
+#     "",
+#     "Your Extenuating Circumstances presentation has been marked; below is your mark, which is the same as for the rest of your group.",
+#     "",
+#     "These marks are provisional, and will remain so until confirmed by the Board of Examiners.",
+#     "",
+#     "DO NOT REPLY TO THIS AUTO-GENERATED EMAIL, as replies will not be received. If you have questions about this mark, ask your workshop group leader (Chris Longmore, Michael Verde, or Clare Walsh) during their office hours.", ""
+# )
+#     gid <- oneg$Group_ID[1]
+#     fnam <- paste0("ec_feedback/",gid,".txt")
+#     txt <- c(
+#         paste0("Group: ", gid), "",
+#         preamble,"", 
+#         paste0("OVERALL MARK: ", mrk, "%"), ""
+#     )
+#     fileConn <- file(fnam)
+#     writeLines(txt, fileConn)
+#     close(fileConn)
+# }
+# 
+# ## Create feedback files
+# for(gid in unique(fback$Group_ID)) {
+#     onef <- fback %>% filter(Group_ID == gid) 
+#     omark <- scores$mark[scores$Group_ID == gid]
+#     make.ec.feedback(onef, omark)
+# }
 
 ## Contact those who were present for the EC assessment, and had ECs approved
 ec.success  <- ec.comb %>% filter(EC_presented == 1 & EC_type == "extension")
+write_csv(ec.success, file = "scripts/pres-marks/ec-success.csv")
 
-##sink("dump.txt")
-for(student in ec.success$PU_email) {    
-    subj <- '"PSYC520/720: Extenuating Circumstances presentation mark"'
-    groupid <- ec.success$Group_ID[ec.success$PU_email == student]
-    ##student <- "andy.wills@plymouth.ac.uk"        
-    cmd <- paste0(
-        "mutt -s ",
-        subj,
-        " -- ",
-        student,
-        " < ec_feedback/",
-        groupid,
-        ".txt"
-    )
-    print(cmd)
-    system(cmd)    
-}
-##sink()
+## Manual email (best to do this for pres, as notify students on DLE should 
+## be 'no' as feedback already received via workshop)
+
+# ##sink("dump.txt")
+# for(student in ec.success$PU_email) {    
+#     subj <- '"PSYC520/720: Extenuating Circumstances presentation mark"'
+#     groupid <- ec.success$Group_ID[ec.success$PU_email == student]
+#     ##student <- "andy.wills@plymouth.ac.uk"        
+#     cmd <- paste0(
+#         "mutt -s ",
+#         subj,
+#         " -- ",
+#         student,
+#         " < ec_feedback/",
+#         groupid,
+#         ".txt"
+#     )
+#     print(cmd)
+#     system(cmd)    
+# }
+# ##sink()
 
 
 ## Email all fails
@@ -319,20 +325,23 @@ ec.comb$EC_presented[is.na(ec.comb$EC_presented)] <- 0
 ec.comb$EC_type[is.na(ec.comb$EC_type)] <- "none"
 
 ec.fail  <- ec.comb %>% filter(EC_presented != 1 & EC_type != "non-attendance")
+write_csv(ec.fail, file = "scripts/pres-marks/ec-fail.csv")
 
-for(student in ec.fail$PU_email) {
-    ##student <- "andy.wills@plymouth.ac.uk"        
-    subj <- '"Failure of assessed presentation"'
-    cmd <- paste0(
-        "mutt -s ",
-        subj,
-        " -- ",
-        student,
-        " < ec-fail.txt"
-    )
-    print(cmd)
-    system(cmd)
-}
+## Manual email (if you want - again DLE handles return of marks)
+
+# for(student in ec.fail$PU_email) {
+#     ##student <- "andy.wills@plymouth.ac.uk"        
+#     subj <- '"Failure of assessed presentation"'
+#     cmd <- paste0(
+#         "mutt -s ",
+#         subj,
+#         " -- ",
+#         student,
+#         " < ec-fail.txt"
+#     )
+#     print(cmd)
+#     system(cmd)
+# }
 
 
 ## Time to return marks to DLE
