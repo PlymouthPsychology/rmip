@@ -55,6 +55,11 @@ scores %>% group_by(work_ID) %>%
               max = max(score),
               sd = sd(score))
 
+#### 2024 comment
+## Workshop 3 is slightly higher, and is within about one s.d. on the overall mean, 
+## and N = 12, so let's leave it. 
+
+#### 2022 comment
 ## Although Workshop 1 is slightly higher, the difference is small and given that each
 ## workshop is an N of 12, some variation is expected.
 ## Also, workshop 1 is lower mainly because of one very poorly performing group (score = 1.33)
@@ -101,6 +106,13 @@ scores$mark[scores$score > 4.24] <- 68
 scores$mark[scores$score > 4.50] <- 77
 ## Highest mark, descriptively "Mostly excellent". letter: A
 scores$mark[scores$score > 4.74] <- 88
+## Descriptively "Excellent". letter: A+
+scores$mark[scores$score > 4.90] <- 100
+
+#### 2024 comment
+## Largely same above as previous years. Had to add an A+ for exceptional group
+## Had to set B- Descriptively rather than -1 s.d. as latter was lower than C+ this year.
+
 
 ## Resultant mean score
 mean(scores$mark)
@@ -179,8 +191,19 @@ nrow(dle)
 grps$`Email address` <- grps$PU_email
 full <- left_join(dle, grps, by="Email address")
 nrow(full)
+
+##### 2024 comment
+## Three students we have aren't on DLE. From S4:
+## So we shouldn't return a mark for those
+## Removed from CSV files
+
 full$`Full name`[is.na(full$`PU_email`)]
 
+##### 2024 comment
+## One student is LIVE on S4 but is missing from our group lists. 
+## We should not return a mark for her
+
+##### 2022 comment
 ## Differs by two students. One has interrupted, the other is in Stage 4
 ## We should not return a mark for either.
 
