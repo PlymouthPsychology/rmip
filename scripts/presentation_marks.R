@@ -249,6 +249,10 @@ absent <- grps.dle %>% filter(present != 1)
 write_csv(absent, file = "absent-students.csv")
 ## OK, contact those students
 
+## Here are example emails for students who were absent with or without approved ECs (see later in this script):
+## https://plymouthpsychology.github.io/rmip/scripts/absent-withECs.txt
+## https://plymouthpsychology.github.io/rmip/scripts/absent-withoutECs.txt
+
 ## (They receive feedback via class - email to workshop leads)
 # ## Check email system working
 # cmd  <- 'mutt -s \"Absence from assessed presentation\" -- andy.wills@plymouth.ac.uk < ec-email.txt'
