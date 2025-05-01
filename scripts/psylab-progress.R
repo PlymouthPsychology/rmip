@@ -21,9 +21,9 @@ n720 <- length(unique(raw720$SRN))
 complete  <- prog %>% filter(Status == "completed")
 
 ## Percentage completions by student (520)
-completed  <- complete %>% filter(Module == "PSYC520") %>%
+completed520  <- complete %>% filter(Module == "PSYC520") %>%
     group_by(SRN) %>% summarise(N = n()) %>% filter(N > 10)
-nrow(completed) / n520 * 100
+print(sprintf("Overall PSYC520 completion: %d/%d = %.2f%%", nrow(completed520), n520, nrow(completed520) / n520 * 100))
 
 ## Count completions by activity (520)
 complete %>% filter(Module == "PSYC520") %>% group_by(Module, Activity) %>%
@@ -31,9 +31,9 @@ complete %>% filter(Module == "PSYC520") %>% group_by(Module, Activity) %>%
     arrange(-pc)
 
 ## Percentage completions by student (720)
-completed  <- complete %>% filter(Module == "PSYC720") %>%
+completed720  <- complete %>% filter(Module == "PSYC720") %>%
     group_by(SRN) %>% summarise(N = n()) %>% filter(N > 10)
-nrow(completed) / n720 * 100
+print(sprintf("Overall PSYC720 completion: %d/%d = %.2f%%", nrow(completed720), n720, nrow(completed720) / n720 * 100))
 
 ## Count completions by activity (720)
 complete %>% filter(Module == "PSYC720") %>% group_by(Module, Activity) %>%
@@ -41,7 +41,7 @@ complete %>% filter(Module == "PSYC720") %>% group_by(Module, Activity) %>%
     arrange(-pc)
 
 ## List of people who are failing 520
-fails  <- complete %>% filter(Module == "PSYC520") %>%
+fails520  <- complete %>% filter(Module == "PSYC520") %>%
     group_by(SRN,Student) %>% summarise(N = n()) %>% filter(N < 11) %>%
     arrange(-N)
 
@@ -52,7 +52,7 @@ grad  <- read_csv("Grades-PSYC520.csv")
 submitted  <- grad %>% filter(Status != "No submission - Not marked")
 
 ## Who has submitted report but not complete PsyLab
-contact  <- fails %>% filter(SRN %in% submitted$`Email address`)
+contact  <- fails520 %>% filter(SRN %in% submitted$`Email address`)
 
 ## Urgent email sent via DLE announcements
 ## Now, go through the whole thing again for 720
