@@ -1,8 +1,14 @@
+## Check Psylab progress
+## Andy Wills,  GPL 3, modified by Julien Besle
+
+## Load packages
 library(tidyverse)
 
+base.folder <- "C:/Users/jbesle/OneDrive - University of Plymouth/Teaching/PSYC520/Module leader/Moderation 2025"
+
 ## Load raw data from PsyLab website
-raw520  <- read_csv("Psylab_PSYC520-2024-25.csv")
-raw720  <- read_csv("Psylab_PSYC720-2024-25.csv")
+raw520  <- read_csv(paste(base.folder,"Psylab_PSYC520-2024-25.csv",sep = "/"))
+raw720  <- read_csv(paste(base.folder,"Psylab_PSYC720-2024-25.csv",sep = "/"))
 raw520$Module <- "PSYC520"
 raw720$Module <- "PSYC720"
 raw <- rbind(raw520,raw720)
@@ -45,8 +51,14 @@ fails520  <- complete %>% filter(Module == "PSYC520") %>%
     group_by(SRN,Student) %>% summarise(N = n()) %>% filter(N < 11) %>%
     arrange(-N)
 
+## List of people who are failing 720
+fails720  <- complete %>% filter(Module == "PSYC720") %>%
+  group_by(SRN,Student) %>% summarise(N = n()) %>% filter(N < 11) %>%
+  arrange(-N)
+
+## See if we can save some of them (after report has been submitted):
 ## Load grading worksheet from DLE
-grad  <- read_csv("Grades-PSYC520.csv")
+grad  <- read_csv(paste(base.folder,"Grades-PSYC520.csv",sep = "/"))
 
 ## Reduce to people who have actually submitted main report
 submitted  <- grad %>% filter(Status != "No submission - Not marked")
@@ -57,13 +69,8 @@ contact  <- fails520 %>% filter(SRN %in% submitted$`Email address`)
 ## Urgent email sent via DLE announcements
 ## Now, go through the whole thing again for 720
 
-## List of people who are failing 520
-fails720  <- complete %>% filter(Module == "PSYC720") %>%
-    group_by(SRN,Student) %>% summarise(N = n()) %>% filter(N < 11) %>%
-    arrange(-N)
-
 ## Load grading worksheet from DLE
-grad720  <- read_csv("Grades-PSYC720.csv")
+grad720  <- read_csv(paste(base.folder,"Grades-PSYC720.csv",sep = "/"))
 
 ## Reduce to people who have actually submitted main report
 submitted720  <- grad720 %>% filter(Status != "No submission - Not marked")

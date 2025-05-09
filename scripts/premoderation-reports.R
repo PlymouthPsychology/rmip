@@ -1,4 +1,7 @@
 ## Pre-moderation script
+## Andy Wills,  GPL 3, modified by Julien Besle
+
+## Load packages
 library(tools)
 library(tidyverse)
 library(stringr)

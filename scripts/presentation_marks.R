@@ -1,7 +1,5 @@
 ## Presentation mark moderation and distribution
-## Andy Wills,  GPL 3
-
-rm(list=ls())
+## Andy Wills,  GPL 3, modified by Julien Besle
 
 ## Load packages
 library(tidyverse)
@@ -68,8 +66,8 @@ scores %>% group_by(work_ID) %>% ungroup() %>%
 ## and N = 12, so let's leave it.
 
 #### 2024 comment (AW)
-## Workshop 3 is slightly higher, and is within about one s.d. on the overall mean, 
-## and N = 12, so let's leave it. 
+## Workshop 3 is slightly higher, and is within about one s.d. on the overall mean,
+## and N = 12, so let's leave it.
 
 #### 2022 comment (AW)
 ## Although Workshop 1 is slightly higher, the difference is small and given that each
@@ -150,15 +148,15 @@ make.feedback <- function(oneg, mrk) {
     # "",
     # "DO NOT REPLY TO THIS AUTO-GENERATED EMAIL, as replies will not be received. If you have questions about this feedback, ask your group leader in your next session.",
     ""
-)    
+)
     gid <- oneg$Group_ID[1]
     fnam <- paste0(feedback.folder,"/",gid,".txt")
     txt <- c(
         paste0("Group: ", gid), "",
-        preamble,"", 
+        preamble,"",
         paste0("OVERALL MARK: ", mrk, "%"), ""
     )
-    
+
     for(rw in 1:nrow(oneg)) {
         txt <- c(txt,
                  paste0(rw,". ", oneg$Component[rw]),
@@ -177,7 +175,7 @@ if (!dir.exists(feedback.folder)) {
   dir.create(feedback.folder) # Create the folder only if it does not exist
 }
 for(gid in unique(fback$Group_ID)) {
-    onef <- fback %>% filter(Group_ID == gid) 
+    onef <- fback %>% filter(Group_ID == gid)
     omark <- scores$mark[scores$Group_ID == gid]
     make.feedback(onef, omark)
 }
@@ -237,7 +235,7 @@ grps.dle <- grps |> filter(PU_email %in% dle$`Email address`)
 # full$`Full name`[is.na(full$`PU_email`)]
 
 ##### 2024 comment (AW)
-## One student is LIVE on S4 but is missing from our group lists. 
+## One student is LIVE on S4 but is missing from our group lists.
 ## We should not return a mark for her
 
 ##### 2022 comment (AW)
@@ -257,7 +255,7 @@ write_csv(absent, file = "absent-students.csv")
 # ## Check email system working
 # cmd  <- 'mutt -s \"Absence from assessed presentation\" -- andy.wills@plymouth.ac.uk < ec-email.txt'
 # system(cmd)
-# 
+#
 # ## Email all absentees
 # for(student in absent$PU_email) {
 #     subj <- '"Absence from assessed presentation"'
@@ -280,7 +278,7 @@ present <- grps.dle %>% filter(present == 1)
 # for(student in present$PU_email) {
 #     subj <- '"PSYC520/720: Group presentation mark and feedback"'
 #     groupid <- present$Group_ID[present$PU_email == student]
-# ##  student <- "andy.wills@plymouth.ac.uk"        
+# ##  student <- "andy.wills@plymouth.ac.uk"
 #     cmd <- paste0(
 #         "mutt -s ",
 #         subj,
@@ -291,7 +289,7 @@ present <- grps.dle %>% filter(present == 1)
 #         ".txt"
 #     )
 #     print(cmd)
-#    ## system(cmd)  
+#    ## system(cmd)
 # }
 # ##sink()
 
@@ -320,17 +318,17 @@ ec.comb  <- left_join(absent, ec.marks, by="PU_email") %>%  # (only considering 
 #     fnam <- paste0("ec_feedback/",gid,".txt")
 #     txt <- c(
 #         paste0("Group: ", gid), "",
-#         preamble,"", 
+#         preamble,"",
 #         paste0("OVERALL MARK: ", mrk, "%"), ""
 #     )
 #     fileConn <- file(fnam)
 #     writeLines(txt, fileConn)
 #     close(fileConn)
 # }
-# 
+#
 # ## Create feedback files
 # for(gid in unique(fback$Group_ID)) {
-#     onef <- fback %>% filter(Group_ID == gid) 
+#     onef <- fback %>% filter(Group_ID == gid)
 #     omark <- scores$mark[scores$Group_ID == gid]
 #     make.ec.feedback(onef, omark)
 # }
@@ -339,14 +337,14 @@ ec.comb  <- left_join(absent, ec.marks, by="PU_email") %>%  # (only considering 
 # ec.success  <- ec.comb %>% filter(EC_presented == 1 & EC_type == "extension")
 # write_csv(ec.success, file = "scripts/pres-marks/ec-success.csv")
 
-## Manual email (best to do this for pres, as notify students on DLE should 
+## Manual email (best to do this for pres, as notify students on DLE should
 ## be 'no' as feedback already received via workshop)
 
 # ##sink("dump.txt")
-# for(student in ec.success$PU_email) {    
+# for(student in ec.success$PU_email) {
 #     subj <- '"PSYC520/720: Extenuating Circumstances presentation mark"'
 #     groupid <- ec.success$Group_ID[ec.success$PU_email == student]
-#     ##student <- "andy.wills@plymouth.ac.uk"        
+#     ##student <- "andy.wills@plymouth.ac.uk"
 #     cmd <- paste0(
 #         "mutt -s ",
 #         subj,
@@ -357,7 +355,7 @@ ec.comb  <- left_join(absent, ec.marks, by="PU_email") %>%  # (only considering 
 #         ".txt"
 #     )
 #     print(cmd)
-#     system(cmd)    
+#     system(cmd)
 # }
 # ##sink()
 
@@ -365,14 +363,14 @@ ec.comb  <- left_join(absent, ec.marks, by="PU_email") %>%  # (only considering 
 # ## Email all fails
 # ec.comb$EC_presented[is.na(ec.comb$EC_presented)] <- 0
 # ec.comb$EC_type[is.na(ec.comb$EC_type)] <- "none"
-# 
+#
 # ec.fail  <- ec.comb %>% filter(EC_presented != 1 & EC_type != "non-attendance")
 # write_csv(ec.fail, file = "scripts/pres-marks/ec-fail.csv")
-# 
+#
 ## Manual email (if you want - again DLE handles return of marks)
 
 # for(student in ec.fail$PU_email) {
-#     ##student <- "andy.wills@plymouth.ac.uk"        
+#     ##student <- "andy.wills@plymouth.ac.uk"
 #     subj <- '"Failure of assessed presentation"'
 #     cmd <- paste0(
 #         "mutt -s ",
