@@ -3,7 +3,7 @@ title: "PSYC520-720 Reports pre-moderation report (2024-25)"
 output: html_document
 ---
 
-## Authors: Andy Wills,  GPL 3, modified by Julien Besle
+Authors: Andy Wills,  GPL 3, modified by Julien Besle
 
 Load packages
 ```{r, message = FALSE}

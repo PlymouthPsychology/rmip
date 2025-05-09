@@ -1,6 +1,5 @@
-## Presentation mark moderation and distribution
-## Andy Wills,  GPL 3
-rm(list=ls())
+## Report mark moderation and distribution
+## Andy Wills,  GPL 3, modified by Julien Besle
 
 ## Load packages
 library(tools)
@@ -11,17 +10,18 @@ markers  <- list.files('main-marks-520')
 
 marks  <- NULL
 for (this.marker in markers) {
-    tmp  <- read_csv(paste0("main-marks-520/",this.marker))
-    marker  <- file_path_sans_ext(this.marker)
-    tmp  <- cbind(marker, tmp)
-    print(this.marker)
-    marks  <- rbind(marks, tmp)
+  tmp  <- read_csv(paste0("main-marks-520/",this.marker))
+  marker  <- file_path_sans_ext(this.marker)
+  tmp  <- cbind(marker, tmp)
+  print(this.marker)
+  marks  <- rbind(marks, tmp)
 }
 
-write_csv(marks, "report-scores-2022.csv")
+write_csv(marks, "report-scores-2024.csv")
 
 ## Check/clean data
 
+#### 2022
 ## SHartgen had missed one mark (no entry)
 
 ## NKout entered Participant 11859590 identifier twice (the 2nd one was
@@ -30,6 +30,9 @@ write_csv(marks, "report-scores-2022.csv")
 ## CJones had entered combo of Participant 11859439 and SRN 10682068
 ## twice. I cannot recover which reports these two are without
 ## further input.
+
+#### 2024
+# Nomi used one 6, I changed to a 5.
 
 length(unique(marks$Component)) ## Should be 25 different components
 ## (#16 missing from mark sheet)
@@ -46,15 +49,17 @@ scores <- marks %>% group_by(marker, Identifier) %>% summarise(score = mean(Scor
 
 ## Compare markers on summary stats
 cmp.markers  <- scores %>% group_by(marker) %>%
-    summarise(        
-        N = n(),
-        mean = mean(score),
-        sd = sd(score)) %>%
-    arrange(mean)
+  summarise(
+    N = n(),
+    mean = mean(score),
+    sd = sd(score)) %>%
+  arrange(mean)
 print(cmp.markers)
 boxplot(cmp.markers$mean)
+
+#### 2022
 mean(cmp.markers$mean) # 3.6
-sd(cmp.markers$mean) # 0.3 
+sd(cmp.markers$mean) # 0.3
 
 ## To one d.p., most markers have an average mark that is within one s.d. of the other
 ## markers' average marks (3.3-3.9).
@@ -78,16 +83,50 @@ scores$score[scores$marker == "DGraham"]  <- scores$score[scores$marker == "DGra
 ## disadvantaging some high-performing students. NO CORRECTION MADE.
 scores %>% filter(marker == "DDjama") %>% arrange(score) %>% print(n=Inf)
 
+#### 2024
+mean(cmp.markers$mean) # 3.43
+sd(cmp.markers$mean) # 0.14
+
+## To two d.p., most markers have an average mark that is close to one s.d. of the other
+## markers' average marks (3.29-3.57).
+
+## The exception was:
+
+## STalbot (3.77, N=25) - Spencer was in the middle of the disribution on
+## pre-moderation. And he has a range of marks from 2.96 (OK) to 4.36 (good /
+## excellent).
+
+
+scores %>% filter(marker == "STalbot") %>% arrange(score) %>% print(n=Inf)
+scores %>% filter(marker == "RStatton") %>% arrange(score) %>% print(n=Inf)
+
 ## Now look at score distribution
 hist(scores$score)
+
+#### 2022
 mean(scores$score) # 3.6 - Up .2 from last year, in depths of pandemic
 sd(scores$score) # 0.7 - Same as last year
 min(scores$score) # 1.8 - Similar to last year (1.7), where we made this a D
+
+#### 2024
+mean(scores$score) # 3.4 - Down .2 from 2022, pretty stable
+sd(scores$score) # 0.6 - Down .1 from 2022, fairly stable
+min(scores$score) # 1 - Lower than 2022 (1.7), but this is because of one unusually poor report
 max(scores$score) # 4.8 - Same as last year, where highest mark as an A.
 
 ## Convert to mark, using the same thresholds as last two years
 
 scores$mark <- 0
+
+
+#### 2024
+scores$mark[scores$score > .9] <- 15 ## Descriptively "poor": F-
+
+scores$mark[scores$score > 1] <- 25 ## Descriptively "poor / patchy": F
+
+scores$mark[scores$score > 1.1] <- 25 ## Descriptively "poor / patchy": F+
+
+scores$mark[scores$score > 1.25] <- 42 ## Descriptively "mainly poor, some patchy": D-
 
 scores$mark[scores$score > 1.5] <- 45 ## Descriptively "poor / patchy": D
 
@@ -106,18 +145,25 @@ scores$mark[scores$score > 3.50] <- 65 ## Descriptively "OK/good", letter: B
 scores$mark[scores$score > 3.99] <- 68 ## Descriptively "good", letter: B+
 
 scores$mark[scores$score > 4.25] <- 77 ## Descriptively "mainly good, aspects
-                                       ## of excellence", letter: A-
+## of excellence", letter: A-
 
 scores$mark[scores$score > 4.50] <- 88 ## Descriptively, more
-                                       ## excellent than good. Letter: A
+## excellent than good. Letter: A
 
 scores$mark[scores$score > 4.75] <- 100 ## Highest mark. Descriptively, mainly
-                                        ## excellent. Letter: A+
+## excellent. Letter: A+
 
 ## Resultant mean score
+
+#### 2022
 mean(scores$mark) # 65.8
 sd(scores$mark)   # 10.3
 nrow(scores)      # 173
+
+#### 2024
+mean(scores$mark) # 62.9
+sd(scores$mark)   #  8.0
+nrow(scores)      # 261
 
 ## Resultant mark distribution
 round(table(scores$mark) *100 / nrow(scores))
@@ -133,7 +179,7 @@ dle <- read_csv("520dle-main.csv")
 grades  <- scores %>% ungroup %>% select(Identifier, mark, marker)
 
 ## Combinied by Identifier
-full  <- full_join(dle, grades) 
+full  <- full_join(dle, grades)
 
 View(full)
 ## Visual inspection (all seems OK)
@@ -141,6 +187,8 @@ View(full)
 ## Where student did not submit, and hence we have NA as a mark, record mark as zero.
 full$mark[is.na(full$mark)]  <- 0
 
+
+#### 2022
 ## Apply mark penalties for reported infractions
 ## Participant 11859420 - Full page over on Discussion. Marked dropped, student informed.
 full$mark[full$Identifier == "Participant 11859420"] <- 55
@@ -152,6 +200,7 @@ full$mark[full$Identifier == "Participant 11859420"] <- 55
 ## Participant 11859429
 
 ## Plagiarism? No reports of plagiarism from markers.
+
 
 ## Copy across mark to correct column
 full$Grade  <- full$mark
