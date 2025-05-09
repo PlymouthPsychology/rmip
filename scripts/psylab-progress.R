@@ -4,7 +4,7 @@
 ## Load packages
 library(tidyverse)
 
-base.folder <- "C:/Users/jbesle/OneDrive - University of Plymouth/Teaching/PSYC520/Module leader/Moderation 2025"
+base.folder <- "C:/Users/jbesle/OneDrive - University of Plymouth/Teaching/PSYC520/Module leader/Moderation 2024-25"
 
 ## Load raw data from PsyLab website
 raw520  <- read_csv(paste(base.folder,"Psylab_PSYC520-2024-25.csv",sep = "/"))

@@ -1,0 +1,151 @@
+---
+title: "PSYC520-720 Reports pre-moderation report (2024-25)"
+output: html_document
+---
+
+## Authors: Andy Wills,  GPL 3, modified by Julien Besle
+
+Load packages
+```{r, message = FALSE}
+library(tools)
+library(tidyverse)
+library(stringr)
+```
+
+Load data
+```{r, message = FALSE}
+
+base.folder <- "C:/Users/jbesle/OneDrive - University of Plymouth/Teaching/PSYC520/Module leader/Moderation 2024-25"
+sample.folder <- "Reports sample marks 2025"
+
+marks  <- NULL
+markers  <- list.files(paste(base.folder,sample.folder,sep="/"))
+for (this.marker in markers) {
+    tmp  <- read_csv(paste(base.folder,sample.folder,this.marker,sep="/"))
+    marker  <- file_path_sans_ext(this.marker)
+    tmp  <- cbind(marker, tmp)
+    marks  <- rbind(marks, tmp)
+}
+
+## Remove identical substring "Participant" at start of all identifiers
+marks <- marks %>%
+  mutate(Identifier = str_remove(Identifier, "^Participant "))
+
+write_csv(marks, paste(base.folder,"mod-scores-2025.csv",sep="/"))
+```
+
+Check that we only have 4 reports with 4 unique identifiers
+```{r}
+unique(marks$Identifier)
+```
+
+## Calculate Mean score across all markers and reports
+```{r}
+grandmean  <- marks %>% summarise(mark = round(mean(Score),1)) |> pull(mark)
+grandmean
+```
+
+So, across four reports, the mean score across 10 markers was 3.5, slightly higher than in 2022 and 2024
+
+## Calculate overall score for each report (averaged across markers)
+```{r}
+marks %>% group_by(Identifier) %>% summarise(mark = round(mean(Score),1))
+```
+
+This year, I picked a narrower range than previous years, from 2.9 to 3.9.
+
+The four reports are approx. equidistant in the range
+
+## report marks by marker
+
+Plot a graph of marks per marker:
+```{r, message = FALSE}
+# Calculate grades by marker and report
+grades  <- marks %>% group_by(marker, Identifier) %>% summarise(mark = mean(Score))
+# grades %>% pivot_wider(names_from = Identifier, values_from = mark)
+
+samples <-levels(factor(grades$Identifier))
+graph  <- grades %>%
+  ggplot(aes(x=factor(Identifier, levels =samples),
+             y=mark, group=marker)) +
+  geom_line(aes(colour=marker)) +
+  geom_point()
+
+graph + facet_grid(marker ~ .)
+```
+
+
+Compare the rankings per marker:
+
+```{r, message = FALSE}
+ranks <- grades %>%
+  group_by(marker) %>%
+  mutate(rank_per_marker = rank(mark)) %>%
+  select(-mark)
+ranks %>% pivot_wider(names_from = Identifier, values_from = rank_per_marker)
+```
+
+
+All markers agreed on the ranking of the best report (rank = 4).
+
+Most markers (12 out of 14) agree on the ranking of the worst report (rank = 1)
+
+Almost as many markers (10 out of 14) agree on the ranking between 2 and 3
+
+
+## Overall scores by marker
+
+Distribution of overall score across markers:
+```{r}
+overall  <- marks %>% group_by(marker) %>% summarise(mark = round(mean(Score),1)) %>% arrange(mark)
+hist(overall$mark)
+```
+Overall scores for each marker
+```{r}
+overall
+```
+
+Most markers were individually close to the group mean.
+
+However the following were > +/- 0.3 away, suggesting over/under marking relative to peers:
+```{r}
+overall %>% filter(mark < grandmean-0.3) #Too harsh
+overall %>% filter(mark > grandmean+0.3) #Too generous
+```
+
+
+## Which components have the most variance between markers?
+
+Distribution of the SD across markers for all four reports and all 25 components (i.e. 100 different marks):
+
+```{r, message = FALSE}
+score.by.comp  <- marks %>% group_by(Description, Component, marker, Identifier) %>% summarize(Score = mean(Score))
+score.sd  <- score.by.comp %>% group_by(Description, Component, Identifier) %>% summarise(SD = sd(Score)) %>% arrange(-SD)
+hist(score.sd$SD)
+```
+
+
+Fairly Impressive, SD is below 1 for almost all component-Identifier pairs.
+The top 6 SDs (>1) occurred for 2 reports (but different components).
+
+Let's look at the components with the largest variability:
+```{r}
+tops <- score.sd %>% arrange(-SD)
+head(tops)
+```
+
+
+The highest SD is for 'Sample sizes are justified through a power calculation' (component 8).
+
+Let's look at the distribution of marks across markers for this component/report
+```{r}
+marks %>% filter(Component == 8) %>% filter(Identifier == "13472268") %>%
+  select(marker, Score)
+```
+
+The next highest is for 'Discussion provides good considerations of the limitations of the current study' (component 20)
+```{r}
+marks %>% filter(Component == 20) %>% filter(Identifier == "13472270") %>%
+  select(marker, Score)
+```
+
