@@ -56,6 +56,10 @@ fails720  <- complete %>% filter(Module == "PSYC720") %>%
   group_by(SRN,Student) %>% summarise(N = n()) %>% filter(N < 11) %>%
   arrange(-N)
 
+## The rest of the code does not apply if reports are marked anonymously
+# (it can only be run after reports have been marked and students identified on the DLE submission,
+# by which point it is too late to apply for extenuating circumstances)
+
 ## See if we can save some of them (after report has been submitted):
 ## Load grading worksheet from DLE
 grad  <- read_csv(paste(base.folder,"Grades-PSYC520.csv",sep = "/"))
