@@ -16,7 +16,7 @@ Load data
 ```{r, message = FALSE}
 
 base.folder <- "C:/Users/jbesle/OneDrive - University of Plymouth/Teaching/PSYC520/Module leader/Moderation 2024-25"
-sample.folder <- "Reports sample marks 2025"
+sample.folder <- "Reports sample marks"
 
 marks  <- NULL
 markers  <- list.files(paste(base.folder,sample.folder,sep="/"))
@@ -52,7 +52,7 @@ So, across four reports, the mean score across 10 markers was 3.5, slightly high
 marks %>% group_by(Identifier) %>% summarise(mark = round(mean(Score),1))
 ```
 
-This year, I picked a narrower range than previous years, from 2.9 to 3.9.
+This year, I picked a narrower range than previous years, from 3.0 to 3.9.
 
 The four reports are approx. equidistant in the range
 

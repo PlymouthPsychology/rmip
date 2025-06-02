@@ -60,7 +60,8 @@ fails720  <- complete %>% filter(Module == "PSYC720") %>%
 # (it can only be run after reports have been marked and students identified on the DLE submission,
 # by which point it is too late to apply for extenuating circumstances)
 
-## See if we can save some of them (after report has been submitted):
+## See which students have submitted a report
+## This can only be done after the report submissions have been de-anonymised, and so after the reports have been marked
 ## Load grading worksheet from DLE
 grad  <- read_csv(paste(base.folder,"Grades-PSYC520.csv",sep = "/"))
 

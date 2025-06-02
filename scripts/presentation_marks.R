@@ -432,13 +432,18 @@ write_csv(return520, "return520.csv")
 # library(tidyverse)
 # return520  <- read_csv("return520.csv")
 
-attempt520 <- return520 %>% filter(Grade != 0 | !is.na(Grade))
+# count non-submissions
+return520 %>% filter(Grade == 0 | is.na(Grade)) |> nrow()
+# summary stats fr submission
+attempt520 <- return520 %>% filter(Grade != 0 & !is.na(Grade))
 attempt520 %>% summarise(mean = mean(Grade), sd = sd(Grade), n = n())
-
 round(table(attempt520$Grade) * 100 / nrow(attempt520),0)
 
 # return720  <- read_csv("return720.csv")
 
-attempt720 <- return720 %>% filter(Grade != 0)
-attempt720 %>% filter(Grade != 0) %>% summarise(mean = mean(Grade), sd = sd(Grade), n = n())
+# count non-submissions
+return720 %>% filter(Grade == 0 | is.na(Grade)) |> nrow()
+# summary stats fr submission
+attempt720 <- return720 %>% filter(Grade != 0 & !is.na(Grade))
+attempt720 %>% summarise(mean = mean(Grade), sd = sd(Grade), n = n())
 round(table(attempt720$Grade) * 100 / nrow(attempt720),0)
