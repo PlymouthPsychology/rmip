@@ -1,6 +1,5 @@
-## Presentation mark moderation and distribution
+## Report mark moderation and distribution
 ## Andy Wills,  GPL 3
-rm(list=ls())
 
 ## Load packages
 library(tools)
@@ -34,23 +33,40 @@ scores <- marks %>% group_by(marker, Identifier) %>% summarise(score = mean(Scor
 
 ## Compare markers on summary stats
 cmp.markers  <- scores %>% group_by(marker) %>%
-    summarise(        
+    summarise(
         N = n(),
         mean = mean(score),
         sd = sd(score)) %>%
     arrange(mean)
 print(cmp.markers)
 boxplot(cmp.markers$mean)
+
+## 2024
+mean(cmp.markers$mean) # 3.6
+sd(cmp.markers$mean) #
+
+## No markers are outliers as assessed by a typical boxplot procedure.
+
+## 2022
 mean(cmp.markers$mean) # 3.9
-sd(cmp.markers$mean) # 0.1 
+sd(cmp.markers$mean) # 0.1
 
 ## To one d.p., all markers have an average mark that is within one s.d. of the
 ## other markers' average marks (3.8-4.0). There's little evidence here for
 ## differences in marking.
 
 ## Now look at score distribution
+
+## 2024
+mean(scores$score) # 3.5 - Down 0.4 from 2022
+sd(scores$score) # 0.7 - Up 0.2 from 2022
+min(scores$score) # 2.1 - Down 0.5 from 2022
+max(scores$score) # 4.8 - Same as 2022
+
+
+# 2022
 hist(scores$score)
-mean(scores$score) # 3.9 - Up 0.3 from last year in depths of pandemic 
+mean(scores$score) # 3.9 - Up 0.3 from last year in depths of pandemic
 sd(scores$score) # 0.5 - same as last year
 min(scores$score) # 2.6 - Similar to last year where worst report was 2.7 and awarded C-
 max(scores$score) # 4.8 - Up .3 from last year (4.5, awarded A-)
@@ -59,6 +75,8 @@ max(scores$score) # 4.8 - Up .3 from last year (4.5, awarded A-)
 ## Marking criteria have already accounted for the higher standard expected
 ## And any mark below a 50 is a fail on this programme.
 
+
+## 2022-2024
 scores$mark <- 0
 
 scores$mark[scores$score > 1.5] <- 45 ## Descriptively "poor / patchy": D
@@ -88,8 +106,15 @@ scores$mark[scores$score > 4.75] <- 100 ## Highest mark. Descriptively, mainly
 
 
 ## Resultant mean score
+
+## 2024
+mean(scores$mark) # 64.7
+sd(scores$mark)   # 10.0
+
+## 2022
 mean(scores$mark) # 69.7
 sd(scores$mark)   # 10.4
+
 ## Resultant mark distribution
 table(scores$mark)
 length(scores$mark)
@@ -101,9 +126,11 @@ dle <- read_csv("720dle-main.csv")
 grades  <- scores %>% ungroup %>% select(Identifier, mark, marker)
 
 ## Combinied by Identifier
-full  <- full_join(dle, grades) 
+full  <- full_join(dle, grades)
 
 View(full)
+
+## 2022
 ## Visual inspection reveals SDordoy coded one as "Participant_" rather than
 ## "Participant ", now hand corrected in CSV file.
 
@@ -111,6 +138,8 @@ View(full)
 full$mark[is.na(full$mark)]  <- 0
 
 ## Apply mark penalties for reported infractions
+
+# 2022
 ## Participant 11859375 - Half-a-page over on Discussion. Marked dropped, student informed.
 full$mark[full$Identifier == "Participant 11859375"] <- 62
 ## Participant 11859380 - 2.5 lines over. Warning given, mark not deducted.
@@ -127,9 +156,14 @@ report$`Feedback comments`  <- ""
 ## Save out as CSV for upload to DLE
 write_csv(report, "return720-report.csv")
 
-## I also checked the written feedback on a sample of each of the 
+## I also checked the written feedback on a sample of each of the
 ## markers. It was good, and pretty consistent across markers.
 
-## DLE fuckup fixing
+## Now, module review form
+attempt <- report %>% filter(Grade != 0)
+attempt %>% summarise(mean = mean(Grade), sd = sd(Grade), n = n())
+round(table(attempt$Grade) * 100 / nrow(attempt))
+
+## 2022 DLE fuckup fixing
 full$mark[full$Identifier == "Participant 11859380"]
 full$mark[full$Identifier == "Participant 11859375"]
