@@ -166,7 +166,7 @@ scores$mark[scores$score > 4.25] <- 77 ## Descriptively "Mostly good, some aspec
 scores$mark[scores$score > 4.50] <- 88 ## Descriptively "Mostly excellent". Letter: A
 scores$mark[scores$score > 4.75] <- 100 ## Highest mark. Descriptively "Excellent". Letter: A+
 
-# I modified the marking scheme compared to previousl years to avoid passing students who submit a mostly poor report,
+# I modified the marking scheme compared to previous years to avoid passing students who submit a mostly poor report,
 # I moved all thresholds accordingly, such that:
 # Mostly poor -> fail
 # Mostly patchy -> D- to D+
@@ -250,7 +250,8 @@ full$mark[full$Identifier == "Participant 13650491"] <- 58
 ## I informed students by adding a line to the general feedback section on the first page of the report.
 
 ## The following reports showed evidence of collusion:
-#
+## Participant 13472378 & Participant 13650415), as reported by the marker
+## I inspected the reports and judged that the infraction was not severe enough to be reported as academic offense
 
 
 #### 2022
