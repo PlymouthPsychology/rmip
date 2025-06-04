@@ -45,12 +45,12 @@ print(cmp.markers)
 boxplot(cmp.markers$mean)
 
 ##2025
-mean(cmp.markers$mean) # 3.29
-sd(cmp.markers$mean) # 0.22
+mean(cmp.markers$mean) # 3.28
+sd(cmp.markers$mean) # 0.20
 
 ## No markers are outliers as assessed by a typical boxplot procedure.
 ## all markers have an average mark that is within one s.d. of the
-## other markers' average marks (3.07-3.51)
+## other markers' average marks (3.03-3.51)
 
 ## 2024
 mean(cmp.markers$mean) # 3.6
@@ -68,7 +68,7 @@ sd(cmp.markers$mean) # 0.1
 
 ## Now look at score distribution
 
-## 2024
+## 2025
 mean(scores$score) # 3.3 - Down 0.3 from 2024 and 0.6 from 2022
 sd(scores$score) # 0.6 - consistent with previous years
 min(scores$score) # 2.6 - up 0.5 from 2024
@@ -133,7 +133,7 @@ scores$mark[scores$score > 4.75] <- 100 ## Highest mark. Descriptively, mainly e
 ## Resultant mean score
 
 ## 2025
-mean(scores$mark) # 60.9
+mean(scores$mark) # 60.7
 sd(scores$mark)   # 8.1
 
 ## 2024
@@ -146,7 +146,7 @@ sd(scores$mark)   # 10.4
 
 ## Resultant mark distribution
 table(scores$mark)
-round(table(scores$mark) *100 / nrow(scores))
+round(table(scores$mark) *100 / nrow(scores),1)
 
 ## Load DLE grade book
 dle <- read_csv(paste(base.folder,input.grading.sheet,sep="/"))
