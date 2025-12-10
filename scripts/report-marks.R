@@ -174,6 +174,24 @@ scores$mark[scores$score > 4.75] <- 100 ## Highest mark. Descriptively "Excellen
 # Mostly good -> B- to B+
 # Mostly excellent -> A- to A+
 
+#### alternative for 2025 (not used)
+scores$mark[scores$score > 0.90] <- 15 ## Descriptively "Poor": F-
+scores$mark[scores$score > 1] <- 25 ## Descriptively "Mostly poor": F
+scores$mark[scores$score > 1.2] <- 38 ## Descriptively "Mostly poor, some patchy": F+
+scores$mark[scores$score > 1.5] <- 42 ## Descriptively "More patchy than poor": D-
+scores$mark[scores$score > 1.8] <- 45 ## Descriptively "Mostly patchy, some poor": D
+scores$mark[scores$score > 2.2] <- 48 ## Descriptively "Mostly patchy": D+
+scores$mark[scores$score > 2.5] <- 52 ## Descriptively "Mostly patchy, some OK": C-
+scores$mark[scores$score > 2.8] <- 55 ## Descriptively "Mostly OK, some patchy", letter: C
+scores$mark[scores$score > 3.2] <- 58 ## Descriptively "Mostly OK", letter: C+
+scores$mark[scores$score > 3.5] <- 62 ## Descriptively "Mostly OK, some good", letter: B-
+scores$mark[scores$score > 3.8] <- 65 ## Descriptively "Mostly good, some OK", letter: B
+scores$mark[scores$score > 4.2] <- 68 ## Descriptively "Mostly good", letter: B+
+scores$mark[scores$score > 4.4] <- 77 ## Descriptively "Mostly good, some aspects of excellent", letter: A-
+scores$mark[scores$score > 4.6] <- 88 ## Descriptively "Mostly excellent". Letter: A
+scores$mark[scores$score > 4.8] <- 100 ## Highest mark. Descriptively "Excellent". Letter: A+
+
+
 #### 2024
 scores$mark[scores$score > .9] <- 15 ## Descriptively "poor": F-
 scores$mark[scores$score > 1] <- 25 ## Descriptively "poor / patchy": F
@@ -194,8 +212,8 @@ scores$mark[scores$score > 4.75] <- 100 ## Highest mark. Descriptively, mainly e
 ## Resultant mean score
 
 #### 2025
-mean(scores$mark) # 59.8
-sd(scores$mark)   # 6.9
+mean(scores$mark) # 62.3
+sd(scores$mark)   # 8.0
 nrow(scores)      # 277
 
 #### 2024
