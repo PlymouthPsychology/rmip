@@ -244,6 +244,58 @@ full  <- full_join(dle, grades)
 View(full)
 ## Visual inspection (all seems OK)
 
+
+####################################
+# scatter plot between submission date and score
+library(lubridate)
+
+deadline.datetime = as.POSIXct("2025-05-02 11:37:00 UTC")
+full <- full %>%
+  mutate(
+    submission.datetime = parse_date_time(`Last modified (submission)`, orders = "A, d b Y, I:M p"),
+    datetime.wr.deadline = submission.datetime - deadline.datetime,
+    minutes.wr.deadline = as.numeric(difftime(submission.datetime, deadline.datetime, units = "mins"))
+  )
+
+# scatter plot of marks against submission time
+full %>% 
+  filter(!is.na(minutes.wr.deadline),
+         minutes.wr.deadline < 500
+         ) %>% 
+  ggplot(aes(x = minutes.wr.deadline/60, y = mark)) + 
+  geom_point() +
+  geom_smooth(method = "lm", se = FALSE, color = "red") + 
+  labs(
+    x = "Hours before deadline",
+    y = "Mark"
+  )
+  
+# distribution of submission times
+full %>% 
+  filter(!is.na(minutes.wr.deadline)) %>% 
+  ggplot(aes(x = minutes.wr.deadline/60)) +
+  geom_histogram() + 
+  labs(
+    x = "Hours before deadline",
+  )
+
+# cumulated distribution of submission times
+full %>% 
+  filter(!is.na(minutes.wr.deadline)) %>% 
+  ggplot(aes(x = minutes.wr.deadline/60)) +
+  stat_bin(aes(y = after_stat(cumsum(count))),
+           bins = 30,
+           geom = "step",
+           color = "darkred") +
+  labs(
+    x = "Hours before deadline",
+    y = "Cumulative Count",
+  )
+
+
+####################################
+
+
 ## Where student did not submit, and hence we have NA as a mark, record mark as zero.
 full$mark[is.na(full$mark)]  <- 0
 
